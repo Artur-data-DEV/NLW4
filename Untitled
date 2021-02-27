@@ -1,0 +1,24 @@
+
+
+
+interface DadosDeEnvioEmail{
+    para: string;
+    id: string;
+    assunto: string;
+    text: string
+}
+
+function enviarEmail({para, id, assunto, text}:DadosDeEnvioEmail){
+    console.log(para, id, assunto, texto);
+}
+
+class EnviarEmailParaUsuario {
+    send() {
+        enviarEmail({
+            para: "arturcamposba@gmail.com",
+            id: "9899",
+            assunto: "Olá!",
+            text: "Tudo bem contigo?"
+        })
+    }
+}
