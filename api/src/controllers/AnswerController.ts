@@ -1,21 +1,21 @@
 import { getCustomRepository } from "typeorm";
 import { SurveyUsersRepository } from "../repositories/SurveysUserRepository";
+import {Require, Response} from "express";
 
 class AnswerController {
   async execute(request: Request, response: Response) {
     const { value } = request.params;
-    const { U } = request.query;
+    const { u } = request.query;
 
     const surveysUsersRepository = getCustomRepository(SurveyUsersRepository);
 
     const surveyUser = await surveysUsersRepository.findOne({
-      id: String(U),
+      id: String(u),
     });
 
     if (!surveyUser) {
-      return response.status(400).json({
-        error: "Survey User does not exists!",
-      });
+        throw new AppError("Survey User does not exists.")
+      
     }
 
     surveyUser.value = Number(value);
