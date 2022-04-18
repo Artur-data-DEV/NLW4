@@ -1,0 +1,7 @@
+{
+  "name": "iesb-atv01",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
